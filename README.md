@@ -8,8 +8,10 @@ This script applies different textures (skins) to a set of 2D shapes stored in P
 - PIL (Pillow)
   ```bash
   pip install Pillow
+  ```
 
-# Project Structure
+## Project Structure
+```
 |-- shapes/             # Folder containing shapes (supports nested folders)
 |   |-- example1.png
 |   |-- example2.jpg
@@ -20,27 +22,28 @@ This script applies different textures (skins) to a set of 2D shapes stored in P
 |-- normals_skin.png    # Skin for normals
 |-- script.py           # Main script
 |-- README.md           # This file
+```
 
-# Usage
-Place your shape files (.png, .jpg, .jpeg) in the shapes/ directory. This directory can have nested folders.
+## Usage
 
-Place your skin files (armor_skin.png, roof_skin.png, normals_skin.png) in the root directory.
+1. Place your shape files (.png, .jpg, .jpeg) in the `shapes/` directory. This directory can have nested folders. (Please Note it currently includes shapes based of of Krooms Armor & Armor Expanded Mods)
+2. Place your skin files (`armor_skin.png`, `roof_skin.png`, `normals_skin.png`) in the root directory. It will not create roof or normals; you will need to provide these (custom normals are always a better option).
+3. Run the script:
+   ```bash
+   python script.py
+   ```
+   This will generate skinned shapes and save them in the `output/` directory, preserving the folder structure of the `shapes/` directory.
+4. Check the `output/` directory for the skinned shapes.
 
-# Run the script:
+## Customization
 
-python script.py
+You can customize the alpha transparency threshold by changing the `alpha_threshold` parameter in the `apply_skin()` function. Default value is 100.
 
-This will generate skinned shapes and save them in the output/ directory, preserving the folder structure of the shapes/ directory.
+## Contributing
 
-Check the output/ directory for the skinned shapes.
-
-Customization
-You can customize the alpha transparency threshold by changing the alpha_threshold parameter in the apply_skin() function. Default value is 100.
-
-Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-License
+## License
+
 MIT
-
-
+```
