@@ -1,49 +1,56 @@
-# Texture Mapping for 2D Shapes
 
-This script applies different textures (skins) to a set of 2D shapes stored in PNG or JPEG format. It works recursively through a directory tree to find all shapes and apply the skins to them. The textures are also expected to be in PNG format. The script currently supports applying three types of skins: armor, roof, and normals.
+# Cosmoteer Armor Helper
+
+## Overview
+The Cosmoteer Armor Helper streamlines the creation of armor for the game Cosmoteer. It uses base shape images, applies different textures, and produces armor, roof, and normals images. It also generates icons and blueprints.
+
+## Features
+- **Texture Mapping:** Applies different textures to base shapes.
+- **Auto Cropping:** Matches applied skin to base shape dimensions.
+- **Alpha Thresholding:** Uses the alpha channel for improved texture application.
+- **Dynamic Blueprint Creation:** Adjusts blueprints' contrast based on armor image brightness.
 
 ## Prerequisites
-
 - Python 3.x
-- PIL (Pillow)
-  ```bash
-  pip install Pillow
-  ```
+- PIL (Pillow): Install using `pip install Pillow`
 
-## Project Structure
-```
-|-- shapes/             # Folder containing shapes (supports nested folders)
-|   |-- example1.png
-|   |-- example2.jpg
-|   |-- ...
-|-- output/             # Folder where the skinned shapes will be saved (auto-created)
-|-- armor_skin.png      # Skin for armor
-|-- roof_skin.png       # Skin for roof
-|-- normals_skin.png    # Skin for normals
-|-- script.py           # Main script
-|-- README.md           # This file
-```
+## Quick Start
+1. Clone this repository.
+2. Add base shape images in `shapes/`. (Kroom's Armor Mod shapes included)
+3. Add textures: `armor_skin.png`, `roof_skin.png`, `normals_skin.png`.
+4. Run a script, e.g., `python apply_all.py`.
 
 ## Usage
-
-1. Place your shape files (.png, .jpg, .jpeg) in the `shapes/` directory. This directory can have nested folders. (Please Note it currently includes shapes based of of Krooms Armor & Armor Expanded Mods)
-2. Place your skin files (`armor_skin.png`, `roof_skin.png`, `normals_skin.png`) in the root directory. It will not create roof or normals; you will need to provide these (custom normals are always a better option).
-3. Run the script:
-   ```bash
-   python script.py
-   ```
-   This will generate skinned shapes and save them in the `output/` directory, preserving the folder structure of the `shapes/` directory.
-4. Check the `output/` directory for the skinned shapes.
+1. Add shape files (.png, .jpg, .jpeg) to `shapes/`. (Includes Kroom's Armor & Armor Expanded Mod shapes)
+2. Add skin files to the root directory.
+3. Run the script. Skinned shapes will be in `output/`.
 
 ## Customization
+Adjust the `alpha_threshold` in `apply_skin()` to change alpha transparency. Default is 100.
 
-You can customize the alpha transparency threshold by changing the `alpha_threshold` parameter in the `apply_skin()` function. Default value is 100.
+## Scripts
+- **apply_blueprint.py:** Creates a blueprint based on the provided image path.
+  ```bash
+  python apply_blueprint.py
+  ```
+- **apply_all.py:** Applies all skins, creates icons and blueprints.
+  ```bash
+  python apply_all.py
+  ```
+- **apply_skin.py:** Applies armor, roof, and normals textures.
+  ```bash
+  python apply_skin.py
+  ```
+- **create_icon.py:** Generates an icon from the armor file.
+  ```bash
+  python create_icon.py
+  ```
+
+## Included Skins and Shapes
+Repository includes sample textures and Kroom's Armor Mod shapes.
 
 ## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Welcome contributions via pull requests. For major changes, open an issue first.
 
 ## License
-
 MIT
-```
